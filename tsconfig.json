@@ -18,7 +18,10 @@
       // "isolatedModules": true,
       "jsx": "react",
       "rootDir": "src",
-      "baseUrl": "src"
+      "baseUrl": "src",
+      "paths": {
+        "@/*": ["*"]
+      }
     },
     "include": [
       "src"
