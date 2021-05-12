@@ -7,10 +7,7 @@
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         // Indent with 4 spaces
-        "indent": [
-            "error",
-            4
-        ],
+        "indent": ["error", "tab"],
         // Indent JSX with 4 spaces
         "react/jsx-indent": [
             "error",
