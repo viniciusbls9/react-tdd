@@ -20,6 +20,6 @@
         "react/jsx-indent-props": [
             "error",
             4
-        ],
+        ]
     }
 }
