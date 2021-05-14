@@ -8,4 +8,4 @@ Ideia do primeiro modulo do curso é passar as configurações do git que o prof
 
 ### seção 2: Login - Domain e Data Layer
 
-Nesse segundo modulo já iniciamos com os primeiros testes para o caso de uso de login do usuário.
+Nesse segundo modulo já iniciamos com os primeiros testes para o caso de uso de login do usuário. Criamos testes para cada mensagem de erro ou sucesso que a API pode nos retornar, deixando cada arquivo de erro com a sua responsabilidade.
