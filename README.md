@@ -1,4 +1,4 @@
-# ReactJS, Hooks, Recoil, TDD, Clean Architecture, SOLID
+# :rocket: ReactJS, Hooks, Recoil, TDD, Clean Architecture, SOLID
 
 Curso do professor Rodrigo Manguinho com foco em ReactJS com Typescript e Hooks, utilizando TDD, Clean Architecture, Design Patterns e SOLID.
 
