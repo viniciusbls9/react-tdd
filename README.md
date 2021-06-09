@@ -13,3 +13,7 @@ Nesse segundo modulo já iniciamos com os primeiros testes para o caso de uso de
 ### seção 3:  Infra Layer - Implementando o HttpPostClient
 
 Na seção 3 implementamos o axios de uma forma com que o sistema não fique dependente de uma única ferramenta para requisições, então deixamos o código genérico para caso necessário, poder trocar a ferramenta sem prejudicar o resto do sistema.
+
+### seção 4: Login - Presentation Layer
+
+Essa seção tivemos a oportunidade de configurar o React na mão, sem o uso do CRA (Create React App), assim ganhamos vantagens de utilizar o react de uma forma mais "livre". Configuramos também toda a parte do webpack, iniciamos no layout da tela de login e fizemos as devidas coberturas de testes.
