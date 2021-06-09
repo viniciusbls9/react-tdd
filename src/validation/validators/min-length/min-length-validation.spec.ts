@@ -1,5 +1,5 @@
 import { MinLengthValidation } from './min-length-validation'
-import { InvalidFieldError } from '../errors'
+import { InvalidFieldError } from '@/validation/errors'
 
 describe('MinLengthValidation', () => {
   test('Should return error if value is invalid', () => {
