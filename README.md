@@ -17,3 +17,7 @@ Na seção 3 implementamos o axios de uma forma com que o sistema não fique dep
 ### seção 4: Login - Presentation Layer
 
 Essa seção tivemos a oportunidade de configurar o React na mão, sem o uso do CRA (Create React App), assim ganhamos vantagens de utilizar o react de uma forma mais "livre". Configuramos também toda a parte do webpack, iniciamos no layout da tela de login e fizemos as devidas coberturas de testes.
+
+### seção 5: Validation Layer
+
+Durante essa seção criamos alguns validations para os nossos campos de login, e conhecemos alguns Design Pattern como o Composite e o Builder.
