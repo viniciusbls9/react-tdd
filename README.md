@@ -21,3 +21,8 @@ Essa seção tivemos a oportunidade de configurar o React na mão, sem o uso do 
 ### seção 5: Validation Layer
 
 Durante essa seção criamos alguns validations para os nossos campos de login, e conhecemos alguns Design Pattern como o Composite e o Builder.
+
+
+### seção 6: Login - Main Layer
+
+Na seção 6 fizemos a composição do Login, ajustamos alguns Client do nosso serviço do Axios, fizemos alguns novos testes para bater coverage 100% e também criamos variável de ambiente para subir para produção.
