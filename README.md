@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/viniciusbls9/react-tdd.svg?branch=master)](https://travis-ci.com/viniciusbls9/react-tdd)
 # :rocket: ReactJS, Hooks, Recoil, TDD, Clean Architecture, SOLID
 
 Curso do professor Rodrigo Manguinho com foco em ReactJS com Typescript e Hooks, utilizando TDD, Clean Architecture, Design Patterns e SOLID.
