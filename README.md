@@ -24,7 +24,14 @@ Essa seção tivemos a oportunidade de configurar o React na mão, sem o uso do 
 
 Durante essa seção criamos alguns validations para os nossos campos de login, e conhecemos alguns Design Pattern como o Composite e o Builder.
 
-
 ### seção 6: Login - Main Layer
 
 Na seção 6 fizemos a composição do Login, ajustamos alguns Client do nosso serviço do Axios, fizemos alguns novos testes para bater coverage 100% e também criamos variável de ambiente para subir para produção.
+
+### seção 7: Continuous Integration
+
+A seção 7 foi curta porém muito valiosa, integramos o projeto com o TravisCI e Coveralls para antes de subir o push para o github, as ferramentas verificarem nosso código, e se estiver tudo correto, ai sim liberar o push.
+
+### seção 8: Movendo LocalStorage para Infra
+
+Na seção 8 movemos o LocalStorage para a Infra do projeto, tirando o localStorage "marretado" nos arquivos de layout do projeto. A ideia é deixar o mais genérico possível, e se caso amanha aparecer uma solução melhor do que o localStorage, a gente conseguir alterar o recurso em um único lugar.
