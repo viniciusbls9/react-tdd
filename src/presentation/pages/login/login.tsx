@@ -22,6 +22,7 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
     passwordError: '',
     mainError: ''
   })
+
   useEffect(() => {
     setState({
       ...state,
