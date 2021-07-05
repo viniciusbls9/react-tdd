@@ -134,4 +134,11 @@ describe('SignUp Component', () => {
       passwordConfirmation: password
     })
   })
+
+  test('Should call addAccount only once', async () => {
+    const { sut, addAccountSpy } = makeSut()
+    await simulateValidSubmit(sut)
+    await simulateValidSubmit(sut)
+    expect(addAccountSpy.callsCount).toBe(1)
+  })
 })
