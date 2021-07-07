@@ -1,37 +1,45 @@
 import React from 'react'
 import faker from 'faker'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 import { RenderResult, render, cleanup, fireEvent, waitFor } from '@testing-library/react'
 
 import SignUp from './signup'
-import { Helper, ValidationStub, AddAccountSpy } from '@/presentation/test'
+import { Helper, ValidationStub, AddAccountSpy, SaveAccessTokenMock } from '@/presentation/test'
 import { EmailInUserError } from '@/domain/errors'
 
 type SutTypes = {
   sut: RenderResult
   addAccountSpy: AddAccountSpy
+  saveAcessTokenMock: SaveAccessTokenMock
 }
 
 type SutParams = {
   validationError: string
 }
-
+const history = createMemoryHistory({ initialEntries: ['/signup'] })
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationStub()
   validationStub.errorMessage = params?.validationError
   const addAccountSpy = new AddAccountSpy()
+  const saveAcessTokenMock = new SaveAccessTokenMock()
   const sut = render(
-    <SignUp
-      validation={validationStub}
-      addAccount={addAccountSpy}
-    />
+    <Router history={history}>
+      <SignUp
+        validation={validationStub}
+        addAccount={addAccountSpy}
+        saveAccessToken={saveAcessTokenMock}
+      />
+    </Router>
   )
   return {
     sut,
-    addAccountSpy
+    addAccountSpy,
+    saveAcessTokenMock
   }
 }
 
-const simulateValidSubmit = async (sut: RenderResult, name = faker.name.findName() , email = faker.internet.email(), password = faker.internet.password()): Promise<void> => {
+const simulateValidSubmit = async (sut: RenderResult, name = faker.name.findName(), email = faker.internet.email(), password = faker.internet.password()): Promise<void> => {
   Helper.populateField(sut, 'name', name)
   Helper.populateField(sut, 'email', email)
   Helper.populateField(sut, 'password', password)
@@ -157,5 +165,13 @@ describe('SignUp Component', () => {
     await simulateValidSubmit(sut)
     Helper.testElementText(sut, 'main-error', error.message)
     Helper.testChildCount(sut, 'error-wrap', 1)
+  })
+
+  test('Should call SaveAccessToken on success', async () => {
+    const { sut, addAccountSpy, saveAcessTokenMock } = makeSut()
+    await simulateValidSubmit(sut)
+    expect(saveAcessTokenMock.accessToken).toBe(addAccountSpy.account.accessToken)
+    expect(history.length).toBe(1)
+    expect(history.location.pathname).toBe('/')
   })
 })
