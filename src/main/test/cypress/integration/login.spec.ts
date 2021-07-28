@@ -140,7 +140,6 @@ describe('Login', () => {
       }
     }).as('request')
     cy.getByTestId('email').focus().type(faker.internet.email()).type('{enter}')
-    // cy.getByTestId('submit').click()
     cy.get('@request.all').should('have.length', 0)
   })
 })
