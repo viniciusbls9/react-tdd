@@ -4,6 +4,8 @@
 
 Curso do professor Rodrigo Manguinho com foco em ReactJS com Typescript e Hooks, utilizando TDD, Clean Architecture, Design Patterns e SOLID.
 
+![TDD, SOLID](https://raw.githubusercontent.com/rmanguinho/clean-react/master/public/course-logo.png)
+
 ### seção 1: Introdução
 
 Ideia do primeiro modulo do curso é passar as configurações do git que o professor indica, e também as configurações iniciais do projeto que será aplicado no curso.
