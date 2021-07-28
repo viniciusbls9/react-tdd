@@ -35,3 +35,7 @@ A seção 7 foi curta porém muito valiosa, integramos o projeto com o TravisCI 
 ### seção 8: Movendo LocalStorage para Infra
 
 Na seção 8 movemos o LocalStorage para a Infra do projeto, tirando o localStorage "marretado" nos arquivos de layout do projeto. A ideia é deixar o mais genérico possível, e se caso amanha aparecer uma solução melhor do que o localStorage, a gente conseguir alterar o recurso em um único lugar.
+
+### seção 9: SignUp
+
+A seção 9 criamos o layout, testes e refactores para o SignUp. Por estar aplicando o Clean Code, conseguimos reutilizar muitos códigos da seção 6 nessa feature do SignUp.
