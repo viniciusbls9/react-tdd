@@ -41,3 +41,7 @@ Na seção 8 movemos o LocalStorage para a Infra do projeto, tirando o localStor
 ### seção 9: SignUp
 
 A seção 9 criamos o layout, testes e refactores para o SignUp. Por estar aplicando o Clean Code, conseguimos reutilizar muitos códigos da seção 6 nessa feature do SignUp.
+
+## seção 10: Testes de Integração com Cypress
+
+Nessa seção vimos como implementar testes de integração com o Cypress, uma ferramenta que simula um "usuário" real utilizando a aplicação. Então incluimos testes de duplo clique no botão submit, envio de dados não permitidos etc.
