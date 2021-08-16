@@ -115,3 +115,21 @@
 
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .surveyListWrap {
+    .contentWrap {
+      ul {
+        flex-direction: column;
+        
+        li {
+          flex-basis: 100%;
+
+          .surveyContent {
+            height: 250px;
+          }
+        }
+      }
+    }
+  }
+}
