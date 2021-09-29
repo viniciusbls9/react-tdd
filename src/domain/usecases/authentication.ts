@@ -1,11 +1,13 @@
 import { AccountModel } from '@/domain/models'
 
-// Objeto em forma de Type para armazenar os parametros da interface Authentication
-export type AuthenticationParams = {
-  email: string
-  password: string
-}
-
 export interface Authentication {
-  auth: (params: AuthenticationParams) => Promise<AccountModel>
+  auth: (params: Authentication.Params) => Promise<Authentication.Model>
+}
+export namespace Authentication {
+  // Objeto em forma de Type para armazenar os parametros da interface Authentication
+  export type Params = {
+    email: string
+    password: string
+  }
+  export type Model = AccountModel
 }
