@@ -7,7 +7,7 @@ import Styles from './header-styles.scss'
 
 const Header: React.FC = () => {
   const history = useHistory()
-  const { setCurrentAccount } = useContext(ApiContext)
+  const { setCurrentAccount, getCurrentAccount } = useContext(ApiContext)
   const logout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     event.preventDefault()
     setCurrentAccount(undefined)
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
       <div className={Styles.headerContent}>
         <Logo />
         <div className={Styles.logoutWrap}>
-          <span>Rodrigo</span>
+          <span data-testid="username">{getCurrentAccount().name}</span>
           <a data-testid="logout" href="#" onClick={logout}>sair</a>
         </div>
       </div>
