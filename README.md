@@ -45,3 +45,12 @@ A seção 9 criamos o layout, testes e refactores para o SignUp. Por estar aplic
 ## seção 10: Testes de Integração com Cypress
 
 Nessa seção vimos como implementar testes de integração com o Cypress, uma ferramenta que simula um "usuário" real utilizando a aplicação. Então incluimos testes de duplo clique no botão submit, envio de dados não permitidos etc.
+
+## seção 11: LoadSurveyList - UseCases e Layout
+Na seção 11 criamos o caso de uso do LoadSurveyList, integramos com o HttpGetClient e também criamos todo o layout da página, deixando responsivo e criando o efeito de Shimmer
+
+## seção 12: Autenticação nas Rotas
+Aqui criamos autenticação nas rotas existentes, migramos o Route para o Main Layer. Criamos contextos pra aplicação, usando bastante recurso do React.
+
+## seção 13: LoadSurveyList - Presentation e Composição
+Na 13 fizemos diversos testes, como de integração, casos de sucesso e erro, utilizamos o Design Pattern Decorator e também crimos hooks customizados, desacoplando diversas responsabilidades da página.
