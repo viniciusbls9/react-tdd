@@ -25,7 +25,7 @@ module.exports = merge(common, {
     }]
   },
   devServer: {
-    contentBase: './public',
+    contentBase: 'dist',
     writeToDisk: true,
     historyApiFallback: true
   },
