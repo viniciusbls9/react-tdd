@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development --env development --hot --port 3000",
+    "dev": "webpack server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
     "test:staged": "npm test -- --findRelatedTests",
@@ -45,11 +46,13 @@
     "faker": "^5.5.3",
     "full-icu": "^1.3.4",
     "git-commit-msg-linter": "^3.1.0",
+    "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-localstorage-mock": "^2.4.14",
     "lint-staged": "^10.5.4",
+    "mini-css-extract-plugin": "^2.4.2",
     "node-sass": "^6.0.0",
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0",
@@ -58,7 +61,8 @@
     "typescript": "^4.2.4",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
