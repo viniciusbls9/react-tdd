@@ -1,4 +1,4 @@
-import { RemoteAddAccount } from './remote-add-account'
+import { RemoteAddAccount } from '@/data/usercases'
 import { HttpPostClientSpy } from '@/data/test'
 import { HttpStatusCode } from '@/data/protocols/http'
 import { mockAddAccountParams, mockAddAccountModel } from '@/domain/test'
