@@ -40,3 +40,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 460px) {
+  .form {
+    width: 100%;
+    max-width: 300px;
+  }
+}
