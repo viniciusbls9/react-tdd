@@ -3,9 +3,9 @@
 .signupWrap {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: space-between;
-      
+
   .form {
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
       cursor: pointer;
 
       &:hover {
-          text-decoration: underline;
+        text-decoration: underline;
       }
     }
   }
