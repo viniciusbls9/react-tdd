@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "dev": "webpack server --open --config webpack.dev.js",
+    "dev:base": "webpack server --config webpack.dev.js",
+    "dev": "npm run dev:base -- --open",
     "build": "webpack --config webpack.prod.js",
     "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
@@ -13,6 +14,8 @@
     "test:ci": "npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "test:cypress": "cypress open",
+    "test:cypress:run": "cypress run",
+    "test:cypress:ci": "start-server-and-test dev:base http-get://localhost:8080 test:cypress:run",
     "check": "npm-check -u -s",
     "prepare": "husky install"
   },
@@ -58,6 +61,7 @@
     "mini-css-extract-plugin": "^2.4.2",
     "node-sass": "^6.0.1",
     "sass-loader": "^11.1.1",
+    "start-server-and-test": "^1.14.0",
     "style-loader": "^2.0.0",
     "ts-jest": "^26.5.6",
     "ts-loader": "^9.1.2",
