@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "http://localhost:8080",
   "fixturesFolder": "src/main/test/cypress/fixtures",
   "supportFile": "src/main/test/cypress/support/index.js",
   "pluginsFile": "src/main/test/cypress/plugins/index.js",
