@@ -1,7 +1,7 @@
 import { HttpGetClientSpy } from '@/data/test'
 import { RemoteLoadSurveyResult } from '@/data/usercases'
 import { HttpStatusCode } from '@/data/protocols/http'
-import { AccessDeniedError } from '@/domain/errors'
+import { AccessDeniedError, UnexpectedError } from '@/domain/errors'
 import faker from 'faker'
 
 type SutTypes = {
@@ -26,12 +26,21 @@ describe('RemoteLoadSurveyResult', () => {
     expect(httpGetClientSpy.url).toBe(url)
   })
 
-  test('Shoul throw AccessDeniedError if HttpGetClient return 403', async () => {
+  test('Should throw AccessDeniedError if HttpGetClient return 403', async () => {
     const { sut, httpGetClientSpy } = makeSut()
     httpGetClientSpy.response = {
       statusCode: HttpStatusCode.forbidden
     }
     const promise = sut.load()
     await expect(promise).rejects.toThrow(new AccessDeniedError())
+  })
+
+  test('Should throw UnexpectedError if HttpGetClient return 404', async () => {
+    const { sut, httpGetClientSpy } = makeSut()
+    httpGetClientSpy.response = {
+      statusCode: HttpStatusCode.notFound
+    }
+    const promise = sut.load()
+    await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 })
