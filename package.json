@@ -78,6 +78,7 @@
     "express-history-api-fallback": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-flip-move": "^3.0.4",
     "react-router-dom": "^5.2.0"
   }
 }
