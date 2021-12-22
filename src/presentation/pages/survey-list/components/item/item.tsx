@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { LoadSurveyList } from '@/domain/usecases'
 import { Calendar, Icon, IconName } from '@/presentation/components'
 import Styles from './item-styles.scss'
@@ -17,7 +18,9 @@ const SurveyItem: React.FC<Props> = ({ survey }: Props) => {
       <Calendar date={survey.date} className={Styles.calendarWrap} />
       <p data-testid="question">{survey.question}</p>
     </div>
-    <footer>Ver resultado</footer>
+    <footer>
+      <Link data-testid="link" to={`/surveys/${survey.id}`}>Ver resultado</Link>
+    </footer>
   </li>
   )
 }
