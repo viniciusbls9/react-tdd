@@ -4,7 +4,11 @@ import { createMemoryHistory, MemoryHistory } from 'history'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { SurveyResult } from '@/presentation/pages'
 import { ApiContext } from '@/presentation/contexts'
-import { LoadSurveyResultSpy, mockAccountModel, mockSurveyResultModel } from '@/domain/test'
+import {
+  LoadSurveyResultSpy,
+  mockAccountModel,
+  mockSurveyResultModel
+} from '@/domain/test'
 import { AccessDeniedError, UnexpectedError } from '@/domain/errors'
 import { AccountModel } from '@/domain/models'
 
@@ -15,13 +19,18 @@ type SutTypes = {
 }
 
 const makeSut = (loadSurveyResultSpy = new LoadSurveyResultSpy()): SutTypes => {
-  const history = createMemoryHistory({ initialEntries: ['/'] })
+  const history = createMemoryHistory({ initialEntries: ['/', '/surveys/any_id'], initialIndex: 1 })
   const setCurrentAccountMock = jest.fn()
   render(
-    <ApiContext.Provider value={{ setCurrentAccount: setCurrentAccountMock, getCurrentAccount: () => mockAccountModel() }}>
-    <Router history={history}>
-      <SurveyResult loadSurveyResult={loadSurveyResultSpy} />
-    </Router>
+    <ApiContext.Provider
+      value={{
+        setCurrentAccount: setCurrentAccountMock,
+        getCurrentAccount: () => mockAccountModel()
+      }}
+    >
+      <Router history={history}>
+        <SurveyResult loadSurveyResult={loadSurveyResultSpy} />
+      </Router>
     </ApiContext.Provider>
   )
 
@@ -60,7 +69,9 @@ describe('SurveyResult Component', () => {
     expect(screen.getByTestId('day')).toHaveTextContent('10')
     expect(screen.getByTestId('month')).toHaveTextContent('jan')
     expect(screen.getByTestId('year')).toHaveTextContent('2020')
-    expect(screen.getByTestId('question')).toHaveTextContent(surveyResult.question)
+    expect(screen.getByTestId('question')).toHaveTextContent(
+      surveyResult.question
+    )
     expect(screen.getByTestId('answers').childElementCount).toBe(2)
     const answerWrap = screen.queryAllByTestId('answer-wrap')
     expect(answerWrap[0]).toHaveClass('active')
@@ -73,8 +84,12 @@ describe('SurveyResult Component', () => {
     expect(answers[0]).toHaveTextContent(surveyResult.answers[0].answer)
     expect(answers[1]).toHaveTextContent(surveyResult.answers[1].answer)
     const percents = screen.queryAllByTestId('percent')
-    expect(percents[0]).toHaveTextContent(`${surveyResult.answers[0].percent}%`)
-    expect(percents[1]).toHaveTextContent(`${surveyResult.answers[1].percent}%`)
+    expect(percents[0]).toHaveTextContent(
+      `${surveyResult.answers[0].percent}%`
+    )
+    expect(percents[1]).toHaveTextContent(
+      `${surveyResult.answers[1].percent}%`
+    )
   })
 
   test('Should render error on UnexpectedError', async () => {
@@ -90,7 +105,9 @@ describe('SurveyResult Component', () => {
 
   test('Should logout on AccessDeniedError', async () => {
     const loadSurveyResultSpy = new LoadSurveyResultSpy()
-    jest.spyOn(loadSurveyResultSpy, 'load').mockRejectedValueOnce(new AccessDeniedError())
+    jest
+      .spyOn(loadSurveyResultSpy, 'load')
+      .mockRejectedValueOnce(new AccessDeniedError())
     const { setCurrentAccountMock, history } = makeSut(loadSurveyResultSpy)
     await waitFor(() => screen.getByTestId('survey-result'))
     expect(setCurrentAccountMock).toHaveBeenCalledWith(undefined)
@@ -107,5 +124,12 @@ describe('SurveyResult Component', () => {
     fireEvent.click(screen.getByTestId('reload'))
     expect(loadSurveyResultSpy.callsCount).toBe(1)
     await waitFor(() => screen.getByTestId('survey-result'))
+  })
+
+  test('Should goto SurveyList on back button click', async () => {
+    const { history } = makeSut()
+    await waitFor(() => screen.getByTestId('survey-result'))
+    fireEvent.click(screen.getByTestId('back-button'))
+    expect(history.location.pathname).toBe('/')
   })
 })
