@@ -53,7 +53,7 @@ describe('SurveyResult', () => {
     })
   })
 
-  it('Should logout on AccessDeniedError', () => {
+  it('Should goto SurveyList on back button click', () => {
     cy.visit('')
     mockSuccess()
     cy.visit('/surveys/any_id')
