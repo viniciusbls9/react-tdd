@@ -17,6 +17,6 @@ deploy:
   provider: heroku
   api_key: $HEROKU_API
   app: react-tdd-clean
-  skip_cleanup: true
+  cleanup: true
 notifications:
   email: false
