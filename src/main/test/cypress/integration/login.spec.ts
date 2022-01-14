@@ -67,7 +67,6 @@ describe('Login', () => {
   it('Should present save accessToken if valid credentials are provided', () => {
     mockSuccess()
     simulateValidSubmit()
-    cy.getByTestId('error-wrap').should('not.have.descendants')
     Helper.testUrl('/')
     Helper.testLocalStorageItem('account')
   })

@@ -26,8 +26,12 @@ module.exports = merge(common, {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: 'dist',
-    writeToDisk: true,
+    devMiddleware: {
+      writeToDisk: true
+    },
+    static: {
+      directory: './public'
+    },
     historyApiFallback: true,
     port: 8080
   },
