@@ -72,7 +72,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.3",
     "eslint-config-standard": "^16.0.2",
     "express": "^4.17.2",
     "express-history-api-fallback": "^2.2.1",
